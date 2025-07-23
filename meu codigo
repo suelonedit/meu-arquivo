@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Sorteio de Natal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #003366, #66ccff);
+      color: white;
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    button {
+      padding: 15px 25px;
+      font-size: 16px;
+      background-color: #ff3333;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #cc0000;
+    }
+
+    .resultado {
+      margin-top: 30px;
+      font-size: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎄 Sorteio de Natal 🎁</h1>
+  <p>Clique no botão para sortear 2 participantes!</p>
+  <button onclick="sortear()">Sortear</button>
+
+  <div class="resultado" id="resultado"></div>
+
+  <script>
+    const nomes = ["Edson", "demon", "Saito", "pemontas", "shadow", "yoshi", "Kenny", "Andrey", "Gustavo Yuji", "BLUE"];
+
+    function sortear() {
+      const copia = [...nomes];
+      const indice1 = Math.floor(Math.random() * copia.length);
+      const nome1 = copia.splice(indice1, 1)[0];
+
+      const indice2 = Math.floor(Math.random() * copia.length);
+      const nome2 = copia.splice(indice2, 1)[0];
+
+      document.getElementById("resultado").innerHTML = `
+        <p>🎅 Sorteados:</p>
+        <p><strong>${nome1}</strong> e <strong>${nome2}</strong></p>
+        <p>🎁 Esses dois irão elaborar e trocar presentes!</p>
+      `;
+    }
+  </script>
+</body>
+</html>
